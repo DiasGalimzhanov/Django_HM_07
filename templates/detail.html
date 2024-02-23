@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="holder" style="display: flex; justify-content: space-evenly">
+    <h1>{{todo.title}}</h1>
+    <p>{{todo.body}}</p>
+    <p>{{todo.deadline}}</p>
+    <p>{{todo.status}}</p>
+</div>
+<div class="buttons">
+    <a class="btn btn-primary" href="{% url 'update' todo.id %}" role="button">Изменить</a>
+    <a class="btn btn-primary" href="{% url 'delete' todo.id %}" role="button">Удалить</a>
+
+</div>
+
+{% endblock %}

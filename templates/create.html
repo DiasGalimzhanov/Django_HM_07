@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+   
+    <input type="text" name="title">
+    <input type="text" name="body">
+    <input type="date" name="deadline">
+    <select name="status">
+        {% for status in statuses %}
+            <option value="{{ status.0 }}">{{ status.1  }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Create</button>
+</form>
+
+{% endblock %}

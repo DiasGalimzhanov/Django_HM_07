@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="title" value="{{todo.title}}">
+    <input type="text" name="body" value="{{todo.body}}">
+    <input type="date" name="deadline" value="{{todo.deadline}}">
+    <select name="status">
+        {% for status in statuses %}
+            <option value="{{ status.0 }}" {% if status.0 == book.status %} selected {% endif %}>{{ status.1 }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Update</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for todo in todos %}
+    <table class="table table-striped">
+        <a href="{% url 'detail' todo.id %}">{{todo.title}}</a>
+    </table>
+{% endfor %}
+
+{% endblock %}
