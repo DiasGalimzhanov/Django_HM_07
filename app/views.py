@@ -35,3 +35,7 @@ def update(request,todo_id):
 def delete(request, todo_id):
     Todo.objects.filter(id=todo_id).delete()
     return redirect('home')
+
+def get_id(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    return render(request, 'id.html', {'id': todo_id, 'title': todo.title})
